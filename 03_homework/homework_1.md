@@ -76,3 +76,4 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
+![farmersmarket](https://github.com/YMakushenko/sql/assets/167108527/1fb293b3-bd94-49e7-a0aa-9f0105750171)
