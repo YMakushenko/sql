@@ -38,6 +38,7 @@ only the customer’s most recent visit. */
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
+<<<<<<< HEAD
 
 
 
@@ -73,3 +74,5 @@ with a UNION binding them. */
 
 
 
+=======
+>>>>>>> 6ccd92d (renew homework)
