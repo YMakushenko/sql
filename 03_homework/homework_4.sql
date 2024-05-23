@@ -63,6 +63,7 @@ WHERE visit_number = 1;
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -105,3 +106,8 @@ SELECT customer_id, product_id, vendor_id, market_date, quantity, cost_to_custom
 COUNT(*) OVER(PARTITION BY customer_id, product_id) AS purchase_times
 FROM customer_purchases;
 >>>>>>> 2ab0a3e ("Renewing homework_4.sql")
+=======
+SELECT customer_id, product_id, vendor_id, market_date, quantity, cost_to_customer_per_qty, transaction_time,
+COUNT(*) OVER(PARTITION BY customer_id, product_id) AS purchase_times
+FROM customer_purchases;
+>>>>>>> 2ab0a3ed964a5f08b0afa52db3ecc6ccbe09a5a7
