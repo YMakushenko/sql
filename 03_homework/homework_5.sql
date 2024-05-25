@@ -48,4 +48,40 @@ Finally, make sure you have a WHERE statement to update the right row,
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
 
+WITH
+CustomerCount AS (
+SELECT COUNT(*) AS customers_number
+FROM customer
+),
+PotentialSales AS (
+SELECT vi.vendor_id, vi.product_id, p.product_name, v.vendor_name, 5 * cc.customers_number * vi.original_price AS potential_sales
+FROM vendor_inventory vi
+CROSS JOIN CustomerCount cc
+JOIN vendor v ON vi.vendor_id = v.vendor_id
+JOIN product p ON vi.product_id = p.product_id
+)
+SELECT vendor_name, product_name, potential_sales
+FROM PotentialSales
+GROUP BY vendor_name, product_name;
 
+
+CREATE TABLE product_units AS
+SELECT product_id, product_name, product_size, product_category_id, product_qty_type,
+CURRENT_TIMESTAMP AS snapshot_timestamp
+FROM product
+WHERE product_qty_type = 'unit';
+INSERT INTO product_units (product_id, product_name, product_size, product_category_id, product_qty_type, snapshot_timestamp)
+VALUES(24, 'Apple Pie', '1 piece', 3, 'unit', CURRENT_TIMESTAMP);
+
+DELETE FROM product_units
+WHERE product_id = 24;
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+UPDATE product_units
+SET current_quantity = (
+SELECT COALESCE(max(vi.quantity), 0)
+FROM vendor_inventory vi
+WHERE product_units.product_id = vi.product_id
+);
