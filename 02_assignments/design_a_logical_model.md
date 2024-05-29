@@ -5,8 +5,8 @@ Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 
-Assumptions for my ERD
-Employee. Each employee is uniquely identified by an employee_id. Employees have unique email addresses.
+Assumptions for my ERD:
+Employee. Each employee is uniquely identified by an employee_id. Employees have unique email addresses
 Customer. Each customer is uniquely identified by a customer_id. Customers have unique email addresses Basic contact information (e.g., phone number, address) is stored for each customer.
 Book. Each book is uniquely identified by a book_id. Books are uniquely identified by their title (title), author (author), and publisher (publisher). Books have a price (price) and stock quantity (stock_quantity) to track availability.
 Order. Each order is uniquely identified by an order_id. An order is placed by a customer (customer_id) and processed by an employee (employee_id). Each order includes a reference to the date it was placed (order_date), which links to the Date table. An order can consist of multiple sales transactions.
@@ -16,7 +16,7 @@ Date. Dates are managed in a separate Date table, uniquely identified by date_id
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
-Assumptions for my ERD (shifts).
+Assumptions for my ERD (shifts):
 Shift. Each shift worked by an employee is recorded in the Employee_Shift table, uniquely identified by shift_id. The shift_date is recorded and links to the Date table. Shifts are classified as either 'Morning' or 'Evening'.
 
 ## Question 3
@@ -30,6 +30,7 @@ Type 1 is a table that will overwrite changed. It's simpler and involves overwri
 Type 2 is a table that will retain changes. It creates new records for each change, with each record indicating the period it was valid. This approach save customer address history, which can be useful for tracking customer movements and performing historical analysis. However, it requires more memory and a more complex implementation to process these additional records.
 
 And yes, there are privacy implications to this, as retaining historical address data may raise privacy concerns for customers. Previous addresses are retained, but customers may no longer need them or they may no longer be relevant. This data must be protected.
+```
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
@@ -43,6 +44,7 @@ Differences:
 4. The AdventureWorks Schema doesn't include the date table.
 
 I would zone my ERD.
+```
 
 # Criteria
 
