@@ -6,8 +6,8 @@ Create a logical model for a small bookstore. 📚
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 ```
 Assumptions for my ERD:
-Employee. Each employee is uniquely identified by an employee_id. Employees have unique email addresses
-Customer. Each customer is uniquely identified by a customer_id. Customers have unique email addresses Basic contact information (e.g., phone number, address) is stored for each customer.
+Employee. Each employee is uniquely identified by an employee_id. Employees have unique email addresses.
+Customer. Each customer is uniquely identified by a customer_id. Customers have unique email addresses. Basic contact information (e.g., phone number, address) is stored for each customer.
 Book. Each book is uniquely identified by a book_id. Books are uniquely identified by their title (title), author (author), and publisher (publisher). Books have a price (price) and stock quantity (stock_quantity) to track availability.
 Order. Each order is uniquely identified by an order_id. An order is placed by a customer (customer_id) and processed by an employee (employee_id). Each order includes a reference to the date it was placed (order_date), which links to the Date table. An order can consist of multiple sales transactions.
 Sales. Each sales transaction is uniquely identified by a sales_id. Each sales transaction is associated with a specific order (order_id), book (book_id), and employee (employee_id). The quantity of books sold and the price per unit at the time of sale are recorded. The date of the sale (sales_date) is recorded and links to the Date table.
